@@ -25,7 +25,7 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
       - name: USCIS Action
-        uses: Bluefissure/uscis-case-status-action@latest
+        uses: Bluefissure/uscis-case-status-action@v0.1.0
         id: script
         continue-on-error: true
         with:

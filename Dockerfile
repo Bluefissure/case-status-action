@@ -1,6 +1,6 @@
 FROM python:3.9
 
-ADD . /code
+ADD . /
 
 # Firefox for Selenium install
 RUN apt-get update \

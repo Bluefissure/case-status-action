@@ -30,16 +30,16 @@ jobs:
           receipt_number: ${{ secrets.RECEIPT_NUMBER }}
       - name: Output status.txt
         run: cat status.txt
-      # - name: Commit files
-      #   continue-on-error: true
-      #   run: |
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "Case Status Check Action"
-      #     git add ./status.txt
-      #     git commit -m "${{ steps.script.outputs.status }}"
-      # - name: Push changes
-      #   continue-on-error: false
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: ${{ github.ref }}
+      - name: Commit files
+        continue-on-error: true
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Case Status Check Action"
+          git add ./status.txt
+          git commit -m "${{ steps.script.outputs.status }}"
+      - name: Push changes
+        continue-on-error: false
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

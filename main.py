@@ -69,12 +69,13 @@ def check_status(receipt_number):
     if old_status != status:
         print("Status changed!")
         print(f"::set-output name=status_changed::true")
+        return 2
     else:
         print("Status not changed!")
         print(f"::set-output name=status_changed::false")
 
 def main(args):
-    check_status(args.receipt_number)
+    return check_status(args.receipt_number)
 
 if __name__ == "__main__":
     return_code = main(init_args())

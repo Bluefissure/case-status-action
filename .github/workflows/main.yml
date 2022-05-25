@@ -40,8 +40,15 @@ jobs:
           git add ./status.txt
           git commit -m "${{ steps.script.outputs.status }}"
       - name: Push changes
-        continue-on-error: false
+        continue-on-error: true
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+      - name: Test status is not changed
+        uses: pr-mpt/actions-assert@v3
+        with:
+          assertion: npm://@assertions/is-equal:v1
+          actual: "${{ steps.script.outputs.status_changed }}"
+          expected: false
+

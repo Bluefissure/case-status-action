@@ -3,7 +3,7 @@ FROM python:3.9.13-bullseye
 ADD . /
 
 RUN apt update \
-    && apt-get install -y libnss3
+    && apt-get install -y libnss3 google-chrome-stable
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

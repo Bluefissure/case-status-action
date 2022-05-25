@@ -27,6 +27,7 @@ jobs:
       - name: USCIS Action
         uses: ./
         id: script
+        continue-on-error: true
         with:
           receipt_number: ${{ secrets.RECEIPT_NUMBER }}
       - name: Output status.txt

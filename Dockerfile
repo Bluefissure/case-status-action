@@ -2,15 +2,8 @@ FROM python:3.9
 
 ADD . /
 
-# Firefox for Selenium install
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    curl \
-    firefox-esr \
-    xvfb \
-    && curl -sSLO https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz \
-    && tar zxf geckodriver-v0.30.0-linux64.tar.gz \
-    && mv geckodriver /usr/bin/
+RUN apt list --installed \
+    && apt purge google-chrome-stable
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

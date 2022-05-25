@@ -8,36 +8,36 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out this repo
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-      - name: Installed package list
-        run: apt list --installed
-      - name: Remove Chrome
-        run: sudo apt purge google-chrome-stable
-      # Chromium is already installed!
-      # - name: Install software
-      #   run: sudo apt install -y chromium-browser
-      - name: Install all necessary packages
-        run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
-      - name: Run the script
-        id: script
-        run: python main.py --receipt-number=${{ secrets.RECEIPT_NUMBER }}
+      # - name: Check out this repo
+      #   uses: actions/checkout@v2
+      # - name: Set up Python
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: '3.9'
+      # - name: Installed package list
+      #   run: apt list --installed
+      # - name: Remove Chrome
+      #   run: sudo apt purge google-chrome-stable
+      # - name: Install all necessary packages
+      #   run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
+      # - name: Run the script
+      #   continue-on-error: true
+      #   id: script
+      #   run: python main.py --receipt-number=${{ secrets.RECEIPT_NUMBER }}
+      - name: USCIS Action
+        uses: ./
       - name: Output status.txt
         run: cat status.txt
-      - name: Commit files
-        continue-on-error: true
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Case Status Check Action"
-          git add ./status.txt
-          git commit -m "${{ steps.script.outputs.status }}"
-      - name: Push changes
-        continue-on-error: false
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+      # - name: Commit files
+      #   continue-on-error: true
+      #   run: |
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "Case Status Check Action"
+      #     git add ./status.txt
+      #     git commit -m "${{ steps.script.outputs.status }}"
+      # - name: Push changes
+      #   continue-on-error: false
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ github.ref }}

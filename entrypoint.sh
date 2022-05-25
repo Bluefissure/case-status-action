@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$INPUT_RECEIPT_NUMBER" ]; then
-  echo '::error::Required Receipt Number 2'
+  echo '::error::Required Receipt Number'
   exit 1
 fi
 

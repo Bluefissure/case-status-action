@@ -25,11 +25,6 @@ jobs:
         run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
       - name: Run the script
         id: script
-        outputs:
-          status:
-            description: 'The current case status'
-          status_changed:
-            description: 'Whether the status is changed'
         run: python main.py --receipt-number=${{ secrets.RECEIPT_NUMBER }}
       - name: Output status.txt
         run: cat status.txt

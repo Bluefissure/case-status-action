@@ -18,4 +18,4 @@ ENV PYTHONUNBUFFERED 1
 RUN pip install --no-cache-dir -r requirements.txt \
     && chmod +x entrypoint.sh
 
-ENTRYPOINT ["/code/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

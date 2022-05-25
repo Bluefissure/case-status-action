@@ -1,0 +1,21 @@
+
+name: USCIS Case Status Check Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout
+
+      - uses: ./
+        name: USCIS Action
+        with:
+          receipt_number: ${{ secrets.RECEIPT_NUMBER }}
+
+      - name: Output status.txt
+        run: cat status.txt

@@ -6,4 +6,4 @@ if [ -z "$INPUT_RECEIPT_NUMBER" ]; then
 fi
 
 echo "Running case checker"
-python $GITHUB_ACTION_REPOSITORY/main.py --receipt-number "$INPUT_RECEIPT_NUMBER"
+python main.py --receipt-number "$INPUT_RECEIPT_NUMBER"

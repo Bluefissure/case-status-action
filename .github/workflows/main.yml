@@ -2,6 +2,9 @@
 name: USCIS Case Status Check Action
 
 on:
+  schedule:
+    # This crontab makes this action scheduled for 23:00 UTC each day
+    - cron:  '0 23 * * *'
   workflow_dispatch:
 
 jobs:
@@ -10,26 +13,26 @@ jobs:
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
-      # - name: Set up Python
-      #   uses: actions/setup-python@v2
-      #   with:
-      #     python-version: '3.9'
-      # - name: Installed package list
-      #   run: apt list --installed
-      # - name: Remove Chrome
-      #   run: sudo apt purge google-chrome-stable
-      # - name: Install all necessary packages
-      #   run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
-      # - name: Run the script
-      #   continue-on-error: true
-      #   id: script
-      #   run: python main.py --receipt-number=${{ secrets.RECEIPT_NUMBER }}
-      - name: USCIS Action
-        uses: ./
-        id: script
-        continue-on-error: true
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          receipt_number: ${{ secrets.RECEIPT_NUMBER }}
+          python-version: '3.9'
+      - name: Installed package list
+        run: apt list --installed
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
+      - name: Install all necessary packages
+        run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
+      - name: Run the script
+        continue-on-error: true
+        id: script
+        run: python main.py --receipt-number=${{ secrets.RECEIPT_NUMBER }}
+      # - name: USCIS Action
+      #   uses: ./
+      #   id: script
+      #   continue-on-error: true
+      #   with:
+      #     receipt_number: ${{ secrets.RECEIPT_NUMBER }}
       - name: Output status.txt
         run: cat status.txt
       - name: Commit files

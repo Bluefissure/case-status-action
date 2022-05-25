@@ -26,6 +26,7 @@ jobs:
       #   run: python main.py --receipt-number=${{ secrets.RECEIPT_NUMBER }}
       - name: USCIS Action
         uses: ./
+        id: script
         with:
           receipt_number: ${{ secrets.RECEIPT_NUMBER }}
       - name: Output status.txt

@@ -1,5 +1,7 @@
 FROM python:3.9
 
+ADD . /code
+
 # Firefox for Selenium install
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

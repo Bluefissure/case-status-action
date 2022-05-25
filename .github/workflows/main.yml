@@ -24,4 +24,6 @@ jobs:
       - name: Install all necessary packages
         run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
       - name: Run the script
-        run: python main.py --receipt_number=${{ secrets.RECEIPT_NUMBER }}
+        run: python main.py --receipt-number=${{ secrets.RECEIPT_NUMBER }}
+      - name: Output status.txt
+        run: cat status.txt

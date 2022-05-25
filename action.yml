@@ -1,0 +1,18 @@
+name: 'USCIS Case Status Action'
+description: 'GitHub action for checking USCIS case status'
+author: 'Bluefissure <bluefissure@foxmail.com>'
+branding:
+  icon: 'cloud'
+  color: 'blue'
+inputs:
+  receipt_number:
+    description: 'USCIS receipt number'
+    required: true
+outputs:
+  status:
+    description: 'The current case status'
+  status_changed:
+    description: 'Whether the status is changed'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

@@ -57,6 +57,15 @@ The `${{ secrets.RECEIPT_NUMBER }}` is the receipt number of your case, you need
 
 ![secrets.RECEIPT_NUMBER](https://vip1.loli.io/2022/05/26/C8XgA1j2eKbBpav.png)
 
+
+## Arguments
+
+
+| Arg | Required | Hint |
+| --- | --- | --- |
+| receipt_number | Yes | The receipt number of the case. |
+
+
 ## Notifications
 
 The action will fail if the status of your case is changed, and a fail notification will be sent by github.
@@ -67,11 +76,3 @@ There're also two outputs of this action so you can use them with other github a
 
 - `outputs.status`: The current case status.
 - `outputs.status_changed`: Whether the new case status is different than the one in `status.txt`.
-
-
-## Arguments
-
-
-| Arg | Required | Hint |
-| --- | --- | --- |
-| receipt_number | Yes | The receipt number of the case. |

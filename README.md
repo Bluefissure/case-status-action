@@ -25,7 +25,7 @@ jobs:
       - name: Check out this repo
         uses: actions/checkout@v2
       - name: USCIS Action
-        uses: Bluefissure/uscis-case-status-action@v0.1.3
+        uses: Bluefissure/case-status-action@v0.1.4
         id: script
         continue-on-error: true
         with:

@@ -1,5 +1,5 @@
 
-name: USCIS Case Status Check Action
+name: Case Status Check Action
 
 on:
   schedule:

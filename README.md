@@ -10,7 +10,7 @@ check the case status in [uscis](https://egov.uscis.gov/casestatus/landing.do).
 Create `.github/workflows/uscis.yml` with demo config as：
 
 ```yaml
-name: USCIS Case Status Check Action
+name: Case Status Check Action
 
 on:
   schedule:

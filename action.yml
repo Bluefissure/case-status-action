@@ -1,4 +1,4 @@
-name: 'USCIS Case Status Action'
+name: 'Case Status Action'
 description: 'GitHub action for checking USCIS case status'
 author: 'Bluefissure <bluefissure@foxmail.com>'
 branding:

@@ -1,4 +1,4 @@
-# USCIS Case Status Action
+# Case Status Action
 
 ## Introduction
 
